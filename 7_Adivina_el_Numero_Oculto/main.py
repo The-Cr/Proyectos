@@ -14,7 +14,7 @@ mostramos el n√∫mero de intentos que hemos utilizado para llegar a esta situaci√
 '''
 from random import randint
 
-numero_oculto = 5
+numero_oculto = randint(0,50)
 def Validador(user_num,num_oculto):
     if user_num == num_oculto:
         return True
