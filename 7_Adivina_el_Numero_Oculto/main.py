@@ -14,36 +14,32 @@ mostramos el n√∫mero de intentos que hemos utilizado para llegar a esta situaci√
 '''
 from random import randint
 
-
-
 numero_oculto = 5
-
-user_num = int(input('Ingresa un nuemro entre 1 - 50'))
-
-def menu():
-    resp = input('Deseas Continuar s/n\n')
-    if resp == 's':
-        user_num = int(input('Ingresa un nuemro entre 1 - 50\n'))
-        validarRango(user_num)
-def cont(num):
-    num = num + num
-    return num
 def Validador(user_num,num_oculto):
-    
     if user_num == num_oculto:
-        print('Adivinaste Felicidades')
-        print('Intentos realizados ', str(cont(1)))
+        return True
     else:
-        print('Fallaste\n')
-        cont(1)
-        menu()
+        return False
 
 def validarRango(user_num):
     if  1 <= user_num and user_num <= 50:
-        Validador(user_num,numero_oculto)
+        return True
     else:
-        print('Valor fuera de rango\n')
-        user_num = int(input('Ingresa un nuemro entre 1 - 50\n'))
-        validarRango(user_num)
+        return False
     
-validarRango(user_num)
+Resp = 's'
+cont = 0
+while Resp != 'n':
+    user_num = int(input('Ingresa un nuemro entre 1 - 50\n'))
+    if validarRango(user_num):
+        if Validador(user_num,numero_oculto):
+            cont += 1
+            print('Felicidades has acertado')
+            print('intentos realizados ', cont)
+            exit()
+        else:
+            print('Fallaste\n')
+            Resp = input('Desea Continuar s/n\n')
+            cont += 1
+    else:
+        print('valor fuera de rango')
