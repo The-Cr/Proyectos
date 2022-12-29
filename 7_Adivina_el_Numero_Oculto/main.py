@@ -21,17 +21,21 @@ user_num = int(input('Ingresa un nuemro entre 1 - 50'))
 def menu():
     resp = input('Deseas Continuar s/n\n')
     if resp == 's':
-
+        user_num = int(input('Ingresa un nuemro entre 1 - 50\n'))
+        validarRango(user_num)
 
 def Validador(user_num,num_oculto):
     if user_num == num_oculto:
         print('Adivinaste Felicidades')
     else:
         print('Fallaste\n')
+        menu()
         
 def validarRango(user_num):
     if  1 <= user_num and user_num <= 50:
         Validador(user_num,numero_oculto)
     else:
-        print('Valor fuera de rango')
+        print('Valor fuera de rango\n')
+        user_num = int(input('Ingresa un nuemro entre 1 - 50\n'))
+        validarRango(user_num)
     
